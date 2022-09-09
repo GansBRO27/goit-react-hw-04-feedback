@@ -18,28 +18,11 @@ export class App extends React.Component {
   countTotalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
-  togle = () => {
-    this.setState({
-      good: this.state.good + 1,
-    });
-  };
-  handleIncrement = evt => {
-    if (evt.target.textContent === 'good') {
-      this.setState({
-        good: this.state.good + 1,
-      });
-    }
 
-    if (evt.target.textContent === 'neutral') {
-      this.setState({
-        neutral: this.state.neutral + 1,
-      });
-    }
-    if (evt.target.textContent === 'bad') {
-      this.setState({
-        bad: this.state.bad + 1,
-      });
-    }
+  handleIncrement = name => {
+    this.setState({
+      [name]: this.state[name] + 1,
+    });
   };
   render() {
     return (
